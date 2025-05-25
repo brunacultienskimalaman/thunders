@@ -3,7 +3,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 var cache = builder.AddRedis("cache");
 
 var rabbitMqPassword = builder.AddParameter("RabbitMqPassword", true);
-var rabbitMq = builder.AddRabbitMQ("RabbitMq", password: rabbitMqPassword)
+var rabbitMq = builder.AddRabbitMQ("RabbitMq", password: rabbitMqPassword, port: 5672)
     .WithDataVolume()
     .WithVolume("/etc/rabbitmq")
     .WithManagementPlugin();
